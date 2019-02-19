@@ -7,27 +7,29 @@ export default class Pokemon {
   constructor(data) {
     this.id = data.id
     this.name = data.name;
-    this.health = data.health;
+    this.hp = data.hp;
   }
 
   getCard(button) {
-    return `<div class="container-inner">
-  <div class="card card-pokemon card-fire">
-    <div class="card-block">
-      <div class="card-subtitle text-xs-right">${this.name} <strong>${this.health}</strong></div>
-    </div>
-    <img src="http://static7.comicvine.com/uploads/original/11127/111278010/5217966-mega-charizard-y-booster-packaging_72dpi-600x375-1403277971.png" alt="Pokecard Image"/>
-    <div class="card-block">
-      <h4 class="card-title">${this.name}<small>INFO HERE</small></h4>
-      <p class="card-text"><strong>Pokemon Power</strong><i>Pokemon power info</i></p>
-    </div>
-      <ul class="list-group list-group-flush">
-        <li class="list-group-item"><strong>ATTACK1</strong> ATTACK INFORMATION</li>
-      </ul>
-      ${button}
-  </div>
-</div>
-    `
+
+    return `<p>${this.name}</p>`
+    //     return `<div class="container-inner">
+    //   <div class="card card-pokemon card-fire">
+    //     <div class="card-block">
+    //       <div class="card-subtitle text-xs-right">${this.name} <strong>${this.health}</strong></div>
+    //     </div>
+    //     <img src="http://static7.comicvine.com/uploads/original/11127/111278010/5217966-mega-charizard-y-booster-packaging_72dpi-600x375-1403277971.png" alt="Pokecard Image"/>
+    //     <div class="card-block">
+    //       <h4 class="card-title">${this.name}<small>INFO HERE</small></h4>
+    //       <p class="card-text"><strong>Pokemon Power</strong><i>Pokemon power info</i></p>
+    //       </div>
+    //       <ul class="list-group list-group-flush">
+    //       <li class="list-group-item"><strong>ATTACK1</strong> ATTACK INFORMATION</li>
+    //       </ul>
+    //       ${button}
+    //   </div>
+    // </div>
+    //    `
   }
 }
 

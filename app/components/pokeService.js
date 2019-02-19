@@ -1,14 +1,14 @@
 //Private
 import Pokemon from "../models/pokemon.js";
 
-let _lim = 200;
+let _lim = '964';
 
 let _pokeAPI = axios.create({
   baseURL: 'https://pokeapi.co/api/v2/pokemon/'
 })
 
 let _sandbox = axios.create({
-  baseURL: 'https://bcw-sandbox.herokuapp.com/api/Samuel/heroes'
+  baseURL: 'https://bcw-sandbox.herokuapp.com/api/Samuel/pokemon'
 })
 
 let _state = {
@@ -56,6 +56,7 @@ export default class PokeService {
   }
 
   getMyTeamData() {
+    debugger;
     _sandbox.get()
       .then(res => {
         let data = res.data.results.map(p => new Pokemon(p))
@@ -64,8 +65,9 @@ export default class PokeService {
       .catch(err => console.log(err))
   }
 
+  //`offset=0&limit=${_lim}`
   getApiData() {
-    _pokeAPI.get(`offset=${_lim}&limit=20${_lim}`)
+    _pokeAPI.get(`?offset=0&limit=${_lim}`)
       .then(res => {
         let data = res.data.results.map(p => new Pokemon(p))
         setState('apiPokemon', data)

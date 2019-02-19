@@ -1,5 +1,5 @@
 //Private
-import PokeService from "./pokeService";
+import PokeService from "./pokeService.js";
 
 let _pokeService = new PokeService();
 
@@ -36,8 +36,8 @@ export default class PokeController {
     _pokeService.addSubscriber('apiPokemon', drawPokemon)
     _pokeService.addSubscriber('myPokemon', drawMyTeam)
 
-    _pokeService.ApiPokemon;
-    _pokeService.MyPokemon;
+    _pokeService.getApiData();
+    _pokeService.getMyTeamData();
 
   }
   //add and remove from team functions
