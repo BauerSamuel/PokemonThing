@@ -6,46 +6,75 @@ let _pokeService = new PokeService();
 
 // function to draw all pokemon
 function drawPokemon() {
-  let template = '';
-  let pokemon = _pokeService.ApiPokemon
-  pokemon.forEach(p => {
-    let button = `
-    <button class="btn btn-primary" onclick="app.controllers.pokeController.addToTeam('${p.id}')">ADD TO TEAM</button>
+  let template = ''
+  _pokeService.ApiPokemon.forEach(p => {
+    template += `
+        <button type="button" class="btn btn-success btn-outline btn-lg btn-block"onclick="app.controllers.pokeController.getDetails('${p.url}')">${p.name}</button>
     `
-    template += p.getCard(button);
   })
   document.querySelector('.api-pokemon').innerHTML = template;
 }
 
-// function to draw my pokemon
+function drawDetailed() {
+  document.querySelector('.details').innerHTML = _pokeService.Active.getCard()
+  // let template = ''
+
+  // let pokemon = _pokeService.Active
+
+  // console.log("image url is: " + pokemon.sprites.back_default);
+  // // pokemon.forEach(p => {
+  // // if (p.name == name) {
+  // template = pokemon.getCard();
+  // // }
+  // // })
+  // document.querySelector('.details').innerHTML = template;
+}
 function drawMyTeam() {
   let template = ''
-  let pokemon = _pokeService.MyPokemon
-  pokemon.forEach(p => {
-    let button = `
-    <button class="btn btn-primary" onclick="app.controllers.pokeController.deleteFromTeam('${p.id}')">REMOVE FROM TEAM</button>
+  _pokeService.MyPokemon.forEach(p => {
+    template += `
+    <li> onclick="app.controllers.pokeController.showDetails('${p._id}')">${p.name}</li>
     `
-    template += p.getCard(button);
   })
   document.querySelector('.my-pokemon').innerHTML = template;
-}
 
+  //   let template = ''
+  //   let pokemon = _pokeService.ApiPokemon
+  //   pokemon.forEach(p => {
+  //     template += `
+  //     <div class="col-3">
+  //     <button class="btn btn-primary">${p.name}</button>
+  //     </div>
+  //     `
+  //   })
+  //   document.querySelector('.api-pokemon').innerHTML = template;
+}
 export default class PokeController {
   constructor() {
     //add subscribers here and get the APIs here too
     _pokeService.addSubscriber('apiPokemon', drawPokemon)
+    _pokeService.addSubscriber('activePokemon', drawDetailed)
     _pokeService.addSubscriber('myPokemon', drawMyTeam)
 
     _pokeService.getApiData();
-    _pokeService.getMyTeamData();
+    // _pokeService.getMyTeamData();
 
   }
-  //add and remove from team functions
-  addToTeam(id) {
-    _pokeService.addToTeam(id)
+
+  getDetails(url) {
+    _pokeService.getDetails(url)
   }
-  removeFromTeam(id) {
-    _pokeService.removeFromTeam(id)
+
+  showDetails(id) {
+    _pokeService.showDetails(id)
   }
+
+  addToTeam() {
+    _pokeService.addToTeam()
+  }
+
+  // removeFromTeam(id) {
+  //   _pokeService.removeFromTeam(id)
+  // }
 }
 

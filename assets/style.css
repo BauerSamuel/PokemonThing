@@ -1,0 +1,86 @@
+.card{
+  border: 7px solid gold;
+  padding: 10px;
+}
+img{
+  margin-top: 5px;
+  margin-bottom: 5px;
+  margin-left: 5px;
+  margin-right: 5px;
+  border: 5px solid goldenrod;
+  background-color: grey;
+  
+}
+
+.centered{
+  text-align: center;
+}
+
+.righted{
+  text-align: right;
+}
+
+.fire{
+  background-color: #d8887c;
+}
+
+.grass{
+  background-color: #81d77e;
+}
+
+.psychic{
+  background-color: #b391b2;
+}
+
+.ghost{
+  background-color: #b391b2;
+}
+
+.water{
+  background-color: #66a2c3;
+}
+
+.fighting{
+  background-color: #cf6c2a;
+}
+
+.rock{
+  background-color: #6e4c2c;
+}
+
+.ground{
+   background-color: #6e4c2c;
+}
+
+.poison{
+  background-color: #83077f
+}
+
+.electric{
+  background-color: #f5efa0;
+}
+
+.normal{
+  background-color: #e5e7ec;
+}
+
+.dark{
+  background-color: #303731;
+  color: white;
+}
+
+.metal{
+  background-color: #e2e2e2;
+}
+
+.fairy{
+  background-color: #d03672;
+}
+
+.dragon{
+  background-color: #dfc643;
+}
+
+.bug{
+    background-color: #cad77e;
+}
